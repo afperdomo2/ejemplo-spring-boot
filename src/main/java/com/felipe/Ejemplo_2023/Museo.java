@@ -16,11 +16,22 @@ import org.springframework.data.relational.core.mapping.Table;
 public class Museo {
     @Id
     @Column("id")
-    private int id;
+    private Integer id;
 
     @Column("nombre")
     private String nombre;
 
     @Column("ciudad")
     private String ciudad;
+
+    public Museo(Integer id, String nombre, String ciudad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.ciudad = ciudad;
+    }
+
+    public static Museo crear(String nombre, String ciudad) {
+        return new Museo(null, nombre, ciudad);
+    }
+
 }
